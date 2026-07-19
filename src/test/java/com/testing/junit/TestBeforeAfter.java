@@ -8,16 +8,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 
-
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestBeforeAfter {
 
     @BeforeAll
-    static void beforeAll(){  //need to set static here because beforeAll is a independent of the class
+    void beforeAll(){  //here no need to set static here because we set TestInstance lifecycle as perClass
         System.out.println("Before All tests");
     }
 
     @AfterAll
-    static void afterAll(){
+    void afterAll(){
         System.out.println("After all tests");
     }
 
