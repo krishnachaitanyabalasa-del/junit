@@ -3,6 +3,9 @@ package com.testing.junit;
 import Calc.Shapes;
 import org.junit.Test;
 
+import java.time.Duration;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ShapesTest {
@@ -28,5 +31,22 @@ public class ShapesTest {
         String s = "junit";
         assertTrue(s.equals("junit"));
 
+    }
+
+    @Test
+    public void arrayTesting(){
+        int[] ex = {1,2,4,3};
+        int[] act = {1,2,3,4};
+
+        Arrays.sort(ex);
+        assertArrayEquals(ex,act);
+    }
+
+    @Test
+    public void durationTesting(){
+        int[] ex = {1,2,4,3};
+        int[] act = {1,2,3,4};
+
+        assertTimeout(Duration.ofMillis(2),()->Arrays.sort(ex)); //if the process takes extra time it fails
     }
 }
